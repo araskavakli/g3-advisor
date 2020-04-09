@@ -1,0 +1,6 @@
+<ul class="uk-margin-remove-left uk-breadcrumb">
+  <li *ngIf="showCountry===true"><a [routerLink]="['/cities/']">Germany</a></li>
+  <li *ngIf="cityId"><a [routerLink]="['/cities/' + cityId]">{{cityName}}</a></li>
+  <li *ngIf="entityType"><a [routerLink]="['/cities/' + cityId + '/' + entityType.toLowerCase()]">{{entityType}}</a></li>
+  <li *ngIf="entityName"><a class="uk-disabled" [routerLink]="['/cities/' + cityId + '/' + entityType.toLowerCase() + '/' + entityId]">{{entityName}}</a></li>
+</ul>

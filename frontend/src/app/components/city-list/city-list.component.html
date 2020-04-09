@@ -1,0 +1,16 @@
+<app-breadcrumb [showCountry]="false" [cityName]="null" [cityId]="null"></app-breadcrumb>
+<div class="uk-position-center">
+  <div class="uk-child-width-1-3@m uk-grid-match" uk-grid>
+    <div *ngFor="let city of cities">
+      <a [routerLink]="['/cities/' + city.cityId]">
+        <div class="uk-inline-clip uk-transition-toggle uk-transition-fade-cover uk-light" tabindex="0">
+          <img class="resize-cities" [src]="imageUrlList[city.cityId - 1]" alt="">
+          <div class="uk-position-center">
+            <div class="uk-transition-slide-bottom-small">
+              <h4 class="uk-margin-remove">{{city.name}}</h4>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>

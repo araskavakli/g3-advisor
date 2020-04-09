@@ -1,0 +1,104 @@
+<button class="uk-button uk-button-default uk-margin-small-right" type="button"
+  uk-toggle="target: #offcanvas-nav-primary" id="showFilters">Filter</button>
+
+<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav-sort"
+  id="showSorting">Sort</button>
+
+
+<div id="offcanvas-nav-primary" uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar uk-width-medium">
+    <a class="uk-offcanvas-close" type="button" uk-close></a>
+    <div class="uk-margin">
+      <ul class="uk-nav uk-nav-default">
+        <li class="uk-nav-header uk-text-center">Filter</li>
+        <li class="uk-nav-sub"></li>
+        <li class="uk-nav-divider uk-margin-large-bottom"></li>
+        <div class="uk-margin-small">
+          <span uk-icon="icon: star"></span><span class="uk-form-label uk-margin-small-left">Rating</span>
+        </div>
+        <div class="uk-form-controls uk-form-controls-text">
+          <ngb-rating [(rate)]="filterObject.averageRating" max="5"></ngb-rating>
+        </div>
+
+        <li class="uk-nav-divider uk-margin-large"></li>
+        <div>
+          <div class="uk-margin-small">
+            <span uk-icon="icon: hashtag"></span><span class="uk-form-label uk-margin-small-left">Ranking</span>
+          </div>
+          <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+            <li *ngFor="let option of optionsRanking" class="uk-active">
+              <label>
+                <input class="uk-radio" type="radio" name="checkedRanking" value={{option}}
+                  [(ngModel)]="filterObject.ranking">
+                <span> Top </span> {{option}}</label>
+            </li>
+          </ul>
+        </div>
+
+        <li class="uk-nav-divider uk-margin-large"></li>
+        <div>
+          <div class="uk-margin-small">
+            <span uk-icon="icon: credit-card"></span>
+            <span class="uk-form-label uk-margin-small-left">Price Level</span>
+          </div>
+          <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+            <li *ngFor="let option of optionsPriceLevel" class="uk-active">
+              <label>
+                <input class="uk-radio" type="radio" name="checkedprice" value={{option}}
+                  [(ngModel)]="filterObject.priceLevel">
+                {{option}}</label>
+              </li>
+              <li class="uk-nav-divider uk-margin-large-top"></li>
+          </ul>
+        </div>
+      </ul>
+    </div>
+    <div class="uk-flex uk-flex-center">
+      <a class="uk-button uk-button-sidebar" (click)="submitFilter()">Filter</a>
+    </div>
+    <div class="uk-flex uk-flex-center">
+      <a class="uk-button uk-button-sidebar" (click)="resetFilter()">Reset</a>
+    </div>
+  </div>
+</div>
+
+<div id="offcanvas-nav-sort" uk-offcanvas="overlay: true">
+  <div class="uk-offcanvas-bar">
+    <a class="uk-offcanvas-close" type="button" uk-close></a>
+    <div class="uk-margin">
+      <ul class="uk-nav uk-nav-default">
+        <li class="uk-nav-header uk-text-center">Sort by</li>
+        <li class="uk-nav-divider uk-margin-large-bottom"></li>
+      <div class="uk-margin-small">
+        <span uk-icon="icon: table"></span><span class="uk-form-label uk-margin-left">Sort</span>
+      </div>
+      <div class="uk-form-controls">
+        <select class="uk-select" id="form-stacked-select" [(ngModel)]="filterObject.categoryToSortBy">
+          <option *ngFor="let option of optionsSortBy" [ngValue]="option"> {{option}} </option>
+        </select>
+      </div>
+      <br>
+      <li class="uk-nav-divider uk-margin-large"></li>
+      <div>
+        <div class="uk-margin">
+          <div class="uk-margin-small">
+            <span uk-icon="icon: table"></span><span class="uk-form-label uk-margin-left">Order</span>
+          </div>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" [(ngModel)]="filterObject.sortDirection">
+              <option *ngFor="let direction of optionsSortDirection" [ngValue]="direction"> {{direction}} </option>
+            </select>
+          </div>
+        </div>
+        <li class="uk-nav-divider uk-margin-large-top"></li>
+
+        <div class="uk-flex uk-flex-center">
+          <a class="uk-button uk-button-sidebar" (click)="submitFilter()">Sort</a>
+        </div>
+      </div>
+      <!-- TODO: Styles-->
+
+        <li class="uk-nav-sub"></li>
+        <li></li>
+      </ul>
+    </div>

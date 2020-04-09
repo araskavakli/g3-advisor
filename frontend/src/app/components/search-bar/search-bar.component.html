@@ -1,0 +1,21 @@
+<div class="uk-margin uk-position-center">
+  <form class="uk-search uk-search-large uk-first-column">
+    <a class="uk-search-toggle" uk-search-icon (click)="onClick(userInput.value)">
+    <p uk-search-icon="" class="uk-icon uk-search-icon"><svg width="20" height="20" viewBox="0 0 20 20" data-svg="search-large">
+        <circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle>
+        <path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path>
+      </svg></p></a>
+      <input class="uk-search-input uk-text-break"
+             type="search"
+             placeholder="  Where do we go?"
+             #userInput
+             (keyup.enter)="onEnter($event.target.value)">
+  </form>
+  <div class="uk-margin-medium-top uk-margin-medium-bottom uk-text-muted">
+    <p class="uk-text-center">or let me</p>
+  </div>
+  <div>
+    <button class="uk-align-center uk-button uk-button-default uk-button-large uk-text-lighter" (click)="goToRandomCity()">Surprise You!</button>
+  </div>
+</div>
+

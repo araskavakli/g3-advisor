@@ -1,0 +1,100 @@
+
+.uk-button-sidebar {
+  background-color: transparent;
+  color:  #e5e5e5;
+  border: 1px solid #e5e5e5;
+  width: 98.45px;
+  height: 30px;
+
+}
+
+button {
+  -webkit-appearance: button;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  color: buttontext;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: buttonface;
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 6px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  border-image: initial;
+}
+
+.uk-button {
+  margin: 0;
+  border: none;
+  overflow: visible;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0px;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 38px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .1s ease-in-out;
+  transition-property: color,background-color,border-color;
+  width: 98.5px;
+}
+
+.uk-button:not(:disabled) {
+  cursor: pointer;
+}
+
+.uk-button-default {
+  background-color: transparent;
+  color: #222;
+  border: 1px solid #e5e5e5;
+}
+
+.uk-margin-small-right {
+  margin-right: 10px !important;
+}
+
+.uk-switcher {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.uk-margin {
+  margin-bottom: 20px;
+}
+
+
+
+html {
+  font-family: ProximaNova,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  background: #fff;
+  color: #666;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+
+

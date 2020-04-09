@@ -1,0 +1,35 @@
+<div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
+  <div></div>
+  <div class="uk-flex uk-flex-middle uk-flex-center">
+    <a class="uk-link-reset" [routerLink]="['/cities/' + cityId + '/activities']">
+      <h3 class="uk-margin-remove-bottom uk-margin-medium-left uk-text-light">Activities</h3>
+    </a>
+  </div>
+  <div class="uk-flex uk-flex-middle uk-flex-right">
+    <a class="uk-link-muted" [routerLink]="['/cities/' + cityId + '/activities']">
+      <p class="uk-margin-remove-bottom uk-margin-right uk-text-small">View all</p>
+    </a>
+  </div>
+</div>
+<div *ngFor="let activity of activities">
+  <a class="uk-link-reset" [routerLink]="['/cities/' + cityId + '/activities/' + activity.activityId]">
+    <div
+      class="uk-grid-collapse uk-child-width-expand@s uk-grid-match uk-margin-small-top uk-margin-remove-left uk-box-shadow-hover-medium uk-background-muted"
+      uk-grid>
+      <div class="uk-flex uk-flex-middle uk-margin-medium-left">
+        <p class="uk-text-lead uk-text-small uk-text-center">{{activity.name}}</p>
+      </div>
+      <div class="uk-grid-collapse uk-child-width-expand@s">
+        <div class="uk-flex uk-flex-middle uk-flex-right">
+          <span uk-icon="icon: star; ratio: 0.9"></span>
+        </div>
+        <div class="uk-flex uk-flex-middle uk-flex-left uk-margin-small-left">
+          <span class="uk-text-lead uk-text-small">{{activity.averageRating | number:'1.1-1'}}</span>
+        </div>
+      </div>
+      <div class="uk-padding-remove-left uk-flex-first">
+        <img [src]="urlList[0]" alt="Image">
+      </div>
+    </div>
+  </a>
+</div>

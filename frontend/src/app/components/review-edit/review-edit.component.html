@@ -1,0 +1,83 @@
+<div class="uk-iconnav">
+  <li><a href="#my-id2" uk-icon="icon: file-edit" uk-tooltip="Edit Review" uk-toggle></a></li>
+</div>
+<div id="my-id2" uk-modal>
+  <div class="uk-modal-dialog">
+    <button class="uk-modal-close-default" type="button" uk-close></button>
+    <div class="uk-modal-header">
+      <h2 class="uk-modal-title">{{ headline }}</h2>
+    </div>
+    <div class="uk-modal-body">
+      <fieldset class="uk-fieldset">
+        <form *ngIf="reviewForm" class="uk-form-horizontal uk-margin-large" [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+          <div class="uk-margin">
+            <label class="uk-form-label">Title</label>
+            <div class="uk-form-controls">
+              <input formControlName="title" class="uk-input" type="text">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label">Review</label>
+            <div class="uk-form-controls">
+              <textarea formControlName="reviewText" class="uk-textarea uk-form-width-expand"></textarea>
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label">Your Name</label>
+            <div class="uk-form-controls">
+              <input formControlName="author" class="uk-input" type="text">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label">Date of Visit</label>
+            <div class="uk-form-controls">
+              <input formControlName="visitingDate" class="uk-input" type="text">
+            </div>
+          </div>
+          <input formControlName="reviewCreationDate" class="uk-input" type="hidden"
+            placeholder="">
+          <div class="uk-margin">
+            <div class="uk-form-label">Overall Rating</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <ngb-rating formControlName="rating" [(rate)]="generalRating" max="5"></ngb-rating>
+            </div>
+          </div>
+          <div *ngIf="(entityType === 'hotels') || (entityType === 'restaurants')" class="uk-margin">
+            <div class="uk-form-label">Service Rating</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <ngb-rating formControlName="serviceRating" [(rate)]="serviceRating" max="5"></ngb-rating>
+            </div>
+          </div>
+          <div *ngIf="entityType === 'hotels'" class="uk-margin">
+            <div class="uk-form-label">Location Rating</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <ngb-rating formControlName="locationRating" [(rate)]="locationRating" max="5"></ngb-rating>
+            </div>
+          </div>
+          <div *ngIf="entityType === 'hotels'" class="uk-margin">
+            <div class="uk-form-label">Quality of Sleep</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <ngb-rating formControlName="qualityOfSleepRating" [(rate)]="qualityOfSleepRating" max="5"></ngb-rating>
+            </div>
+          </div>
+          <div *ngIf="entityType === 'restaurants'" class="uk-margin">
+            <div class="uk-form-label">Food Rating</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <ngb-rating formControlName="foodRating" [(rate)]="foodRating" max="5"></ngb-rating>
+            </div>
+          </div>
+          <div *ngIf="entityType === 'restaurants'" class="uk-margin">
+            <div class="uk-form-label">Price Rating</div>
+            <div class="uk-form-controls uk-form-controls-text">
+              <ngb-rating formControlName="valueForMoneyRating" [(rate)]="valueForMoneyRating" max="5"></ngb-rating>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+    </div>
+    <div *ngIf="reviewForm" class="uk-modal-footer uk-text-right">
+      <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+      <button (click)="onSubmit()" class="uk-button uk-button-default uk-modal-close" type="submit" [disabled]="!reviewForm.valid">Save</button>
+    </div>
+  </div>
+</div>

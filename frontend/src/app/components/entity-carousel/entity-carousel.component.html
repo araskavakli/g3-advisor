@@ -1,0 +1,30 @@
+<div uk-slider>
+  <div class="uk-position-relative uk-visible-toggle" tabindex="-1">
+    <div class="uk-slider-container">
+      <ul class="uk-grid-match uk-slider-items uk-child-width-1-3@m uk-grid">
+        <li>
+          <app-hotel-list></app-hotel-list>
+        </li>
+        <li>
+          <app-restaurant-list></app-restaurant-list>
+        </li>
+        <li>
+          <app-activity-list></app-activity-list>
+        </li>
+        <li>
+          <app-sightseeing-list></app-sightseeing-list>
+        </li>
+      </ul>
+    </div>
+    <div class="uk-hidden@m uk-light">
+      <a class="uk-position-center-left uk-position-small" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+      <a class="uk-position-center-right uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    </div>
+    <div class="uk-visible@m">
+      <a class="uk-position-center-left-out uk-position-small" href="#" uk-slidenav-previous
+        uk-slider-item="previous"></a>
+      <a class="uk-position-center-right-out uk-position-small" href="#" uk-slidenav-next uk-slider-item="next"></a>
+    </div>
+  </div>
+  <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+</div>

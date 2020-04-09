@@ -1,0 +1,65 @@
+﻿Classes
+
+    Superclass (Parentclass ?Abstract)
+        List Reviews
+        String title
+        String description
+        String url
+        String location
+        int phoneNumber
+
+        int openTime
+        int closeTime
+        int startTime
+        int endTime
+    
+    Landmarks extends SuperClass
+
+    Restaurant extends SuperClass
+        ?Enum mealType(Indian,Turkish,German,etc...)
+        ?String Vegetarian
+        ?Enum customer(Zielgruppe... Family,Modern,etc...)
+        ?String Sonstiges
+
+    Event extends SuperClass
+        ?Boolean repeats
+
+    Hotel extends SuperClass
+        int checkInTime
+        int checkOutTime
+
+
+    Reviews (Parentclass)
+        String title
+        String description
+        String Autor
+        int visitDate
+        int rating
+
+
+Functions / Features
+F=Function, D=Design, O=Option/Feature(nicht Optional!)
+
+    F_Bewerten
+    F_
+    O_Trip planen
+    O_Open-Street-map 
+    O_Datasets über Java-Faker integrieren
+    O_Eingruppieren der Suchvorschläge nach Themen
+    O_
+    D_Drag and Drop 
+    D_Menu/Filter Klappbar
+    D_
+
+Aufbau der Pages
+
+    Startseite
+
+    Zweite Startseite(Vorauswahl.. Events/Food/Travel)
+
+    MainPage
+
+    Detailansicht vom Objekt (z.B. Hotel)
+
+    Bewertungseite
+

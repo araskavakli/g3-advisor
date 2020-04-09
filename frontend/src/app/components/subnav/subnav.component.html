@@ -1,0 +1,15 @@
+<div class="uk-flex uk-flex-center@s">
+  <ul class="uk-subnav uk-subnav-divider" uk-margin>
+    <li [routerLinkActive]="['uk-active']" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/cities/' + cityId + '/hotels']">Hotels</a></li>
+
+    <li [routerLinkActive]="['uk-active']" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/cities/' + cityId + '/restaurants']">Restaurants</a></li>
+
+    <li [routerLinkActive]="['uk-active']" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/cities/' + cityId + '/activities']">Activities</a></li>
+
+    <li [routerLinkActive]="['uk-active']" [routerLinkActiveOptions]="{exact: true}">
+      <a [routerLink]="['/cities/' + cityId + '/sightseeing']">Sightseeing</a></li>
+  </ul>
+</div>

@@ -1,0 +1,91 @@
+<app-breadcrumb *ngIf="hotel && hotels" [showCountry]="true" [cityName]="cityName" [cityId]="cityId"
+  [entityType]="'Hotels'" [entityName]="hotel.name"></app-breadcrumb>
+<div *ngIf="hotel && hotels">
+  <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light"
+    data-src="https://images.unsplash.com/photo-1551525212-a1dc18871d4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80"
+    uk-img>
+    <h1>{{hotel.name}}</h1>
+  </div>
+  <div class="uk-margin-medium-top uk-margin-remove-left uk-margin-remove-right" uk-grid>
+    <div class="uk-padding-remove-left uk-width-1-3@s uk-flex-first">
+      <div class="uk-padding-remove-right uk-margin-small-right uk-card uk-card-body">
+        <div>
+          <span uk-icon="icon: star; ratio: 1.7"></span>
+          <span class="uk-margin-small-left uk-text-middle uk-text-large uk-text-emphasis">Rating</span>
+        </div>
+        <br>
+        <div>
+          <span
+            class="uk-heading-medium uk-text-light uk-align-right uk-margin-remove-adjacent uk-margin-bottom">{{hotel.averageRating | number:'1.1-1'}}</span>
+        </div>
+        <div>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="uk-grid-collapse uk-child-width-expand@s" uk-grid>
+          <div class="uk-flex-column">
+            <a class="uk-link-muted uk-text-center" [routerLink]="['/cities/' + cityId + '/hotels']">
+              <p class="uk-align-center uk-margin-remove-bottom">#{{hotel.ranking}} of 100 hotels <br> in
+                Germany</p>
+            </a>
+          </div>
+          <div class="uk-flex uk-flex-middle uk-flex-center">
+            <app-review [entityType]="'hotels'" [headline]="hotel.name"></app-review>
+          </div>
+        </div>
+        <div class="uk-margin-medium-top uk-padding-remove-horizontal container">
+          <div *ngIf="hotelReviews.length !== 0" class="uk-grid-small uk-child-width-expand@s uk-text-center" uk-grid>
+            <div class="uk-margin-small-right uk-margin-small-left uk-flex uk-flex-column">
+              <div class="uk-text-nowrap uk-flex uk-flex-center">Quality of sleep</div>
+              <div>
+                <ngb-rating [(rate)]="qualityOfSleepRating" max="5" readonly=true></ngb-rating>
+              </div>
+            </div>
+            <div class="uk-flex uk-flex-column">
+              <div class="uk-margin-small-left">
+                <div>
+                  <span>Location</span>
+                </div>
+                <ngb-rating [(rate)]="locationRating" max="5" readonly=true></ngb-rating>
+              </div>
+            </div>
+            <div class="uk-flex uk-flex-column">
+              <div class="uk-margin-small-left">
+                <div>
+                  <span>Service</span>
+                </div>
+                <div>
+                  <ngb-rating [(rate)]="serviceRating" max="5" readonly=true></ngb-rating>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="uk-flex-column uk-card uk-card-body uk-text-center">
+            <div>
+              <span>{{hotel.streetAddress}}, {{cityName}}</span>
+            </div>
+            <div>
+              <span>{{hotel.phoneNumber}}</span>
+            </div>
+            <div>
+              <span>{{hotel.url}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="uk-padding-xsmall-left uk-width-2-3@s">
+      <div class="uk-padding-remove-left uk-padding-remove-bottom uk-margin-small-left uk-card uk-card-body">
+        <h3 class="uk-card-title">Facilities</h3>
+        <div class="uk-margin-medium-top uk-margin-medium-bottom">
+          <p>{{hotel.description}}</p>
+          <app-entity-slideshow [entityType]="'hotel'"></app-entity-slideshow>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr *ngIf="hotel && hotels" class="uk-divider-icon">
+<div>
+  <app-review-list [reviews]="hotelReviews"></app-review-list>
+</div>
