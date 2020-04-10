@@ -2,6 +2,9 @@ import { GetCityService } from '../../services/get-city.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { City } from 'src/app/model/city';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-bar',
@@ -12,12 +15,31 @@ export class SearchBarComponent implements OnInit {
 
   enteredCityName: string;
   cities: City[];
+  cityNames: string[];
+
+  myControl = new FormControl();
+  options: string[];
+  filteredOptions: Observable<string[]>;
 
   constructor(private cityService: GetCityService,
               private router: Router) { }
 
+
   ngOnInit(): void {
-    this.cityService.cities.subscribe(cities => this.cities = cities);
+    this.cityService.cities.subscribe(cities => {
+      this.cities = cities;
+      this.options = cities.map(city => city.name);
+    });
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onEnter(userInput: string): void {

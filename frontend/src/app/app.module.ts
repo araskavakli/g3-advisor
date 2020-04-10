@@ -30,6 +30,8 @@ import { ReviewListComponent } from './components/review-list/review-list.compon
 import { EntitySlideshowComponent } from './components/entity-slideshow/entity-slideshow.component';
 import { PriceLevelComponent } from './components/price-level/price-level.component';
 import { ReviewEditComponent } from './components/review-edit/review-edit.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { ReviewEditComponent } from './components/review-edit/review-edit.compon
     FormsModule,
     HttpClientModule,
     NgbRatingModule,
-    NgbDatepickerModule
+    NgbDatepickerModule,
+    NoopAnimationsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
