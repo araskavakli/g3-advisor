@@ -2,25 +2,18 @@ import { EntryFilterObject } from './../model/entry-filter-object';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Activity } from '../model/activity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
 
-  rootApi: string = 'http://localhost:8080/activities/?cityId=';
 
   constructor(private http: HttpClient) { }
 
-  getAllActivitesForCity(cityId: number): Observable<Activity[]> {
-    const rootApiActivitiesForCity: string = (this.rootApi + cityId);
-    return this.http.get<Activity[]>(rootApiActivitiesForCity);
-  }
-
   filterResults(filterObject: EntryFilterObject): Observable<any[]> {
     const searchUrl = this.generateFilterUrl(filterObject);
-    return this.http.get<any[]>(('http://localhost:8080/filter/' + searchUrl));
+    return this.http.get<any[]>(('https://g3-advisor.herokuapp.com/filter/' + searchUrl));
   }
 
   public generateFilterUrl(filterObject: EntryFilterObject) {
@@ -69,7 +62,7 @@ export class FilterService {
       }
 
       determineOrdinalPriceLevel(filterObject: EntryFilterObject) {
-        if(filterObject.priceLevel === '€') {
+        if (filterObject.priceLevel === '€') {
             return 1;
         } else if (filterObject.priceLevel === '€-€€') {
             return 2;
