@@ -15,31 +15,19 @@ export class SearchBarComponent implements OnInit {
 
   enteredCityName: string;
   cities: City[];
-  cityNames: string[];
-
-  myControl = new FormControl();
-  options: string[];
-  filteredOptions: Observable<string[]>;
+  cityNames: string[] = [];
+  formControlForCity = new FormControl();
+  filteredCities: Observable<string[]>;
 
   constructor(private cityService: GetCityService,
               private router: Router) { }
 
-
   ngOnInit(): void {
     this.cityService.cities.subscribe(cities => {
       this.cities = cities;
-      this.options = cities.map(city => city.name);
+      this.cityNames = cities.map(city => city.name);
     });
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    this.createFilteredCities();
   }
 
   onEnter(userInput: string): void {
@@ -66,5 +54,19 @@ export class SearchBarComponent implements OnInit {
   capitalizeFirstLetter(userInput: string): string {
     const firstCharUpperCase = userInput.charAt(0).toUpperCase();
     return firstCharUpperCase + userInput.substring(1).toLowerCase();
+  }
+
+  createFilteredCities(): void {
+    this.filteredCities = this.formControlForCity
+                              .valueChanges
+                              .pipe(
+                                startWith(''),
+                                map(value => this._filter(value))
+                                );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.cityNames.filter(cityName => cityName.toLowerCase().includes(filterValue));
   }
 }

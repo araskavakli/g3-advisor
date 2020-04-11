@@ -71,7 +71,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     NgbRatingModule,
     NgbDatepickerModule,
     NoopAnimationsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
