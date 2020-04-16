@@ -5,7 +5,7 @@ import { City } from 'src/app/model/city';
 import { ActivatedRoute } from '@angular/router';
 import { GetCityService } from 'src/app/services/get-city.service';
 import { EntityService } from 'src/app/services/entity.service';
-import { EntryFilterObject } from 'src/app/model/entry-filter-object';
+import { EntryFilterObject } from 'src/app/model/entryFilterObject';
 
 @Component({
   selector: 'app-activity-full-list',

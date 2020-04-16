@@ -1,7 +1,7 @@
-import { SORT_BY, SORT_DIRECTION, PRICE_LEVEL } from './../../model/filter_options';
-import { EntryFilterObject } from './../../model/entry-filter-object';
+import { SORT_BY, SORT_DIRECTION, PRICE_LEVEL } from '../../model/filterOptions';
+import { EntryFilterObject } from '../../model/entryFilterObject';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { STARS, RANKING } from 'src/app/model/filter_options';
+import { STARS, RANKING } from 'src/app/model/filterOptions';
 
 @Component({
   selector: 'app-entry-filter',

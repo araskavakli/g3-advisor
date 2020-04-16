@@ -1,4 +1,4 @@
-import { EntryFilterObject } from './../model/entry-filter-object';
+import { EntryFilterObject } from '../model/entryFilterObject';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';

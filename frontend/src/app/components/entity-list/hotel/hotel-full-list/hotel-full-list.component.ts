@@ -4,7 +4,7 @@ import { Hotel } from 'src/app/model/hotel';
 import { ActivatedRoute } from '@angular/router';
 import { EntityService } from 'src/app/services/entity.service';
 import { City } from 'src/app/model/city';
-import { EntryFilterObject } from 'src/app/model/entry-filter-object';
+import { EntryFilterObject } from 'src/app/model/entryFilterObject';
 import { FilterService } from 'src/app/services/filter.service';
 
 @Component({

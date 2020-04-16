@@ -1,5 +1,5 @@
-import { RestaurantReview } from './../../model/restaurantReview';
-import { ActivityReview } from './../../model/activityReview';
+import { RestaurantReview } from '../../../model/restaurantReview';
+import { ActivityReview } from '../../../model/activityReview';
 import { Component, OnInit, Input } from '@angular/core';
 import { ReviewService } from 'src/app/services/review.service';
 import { HotelReview } from 'src/app/model/hotelReview';

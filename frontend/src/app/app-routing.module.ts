@@ -4,7 +4,7 @@ import { RestaurantComponent } from './components/entity/restaurant/restaurant.c
 import { SightseeingFullListComponent } from './components/entity-list/sightseeing/sightseeing-full-list/sightseeing-full-list.component';
 import { RestaurantFullListComponent } from './components/entity-list/restaurant/restaurant-full-list/restaurant-full-list.component';
 import { HotelFullListComponent } from './components/entity-list/hotel/hotel-full-list/hotel-full-list.component';
-import { CityListComponent } from './components/city-list/city-list.component';
+import { CityListComponent } from './components/city/city-list/city-list.component';
 import { CityComponent } from './components/city/city.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { NgModule } from '@angular/core';
