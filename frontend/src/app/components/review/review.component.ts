@@ -56,9 +56,6 @@ export class ReviewComponent implements OnInit {
     this.loadForm();
   }
 
-  get f() { return this.reviewForm.controls;
-  }
-
   saveReview() {
     if (this.entityType === 'hotels') {
 
