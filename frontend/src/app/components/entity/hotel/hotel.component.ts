@@ -5,7 +5,7 @@ import { ReviewService } from './../../../services/review.service';
 import { City } from 'src/app/model/city';
 import { Hotel } from 'src/app/model/hotel';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GetCityService } from 'src/app/services/get-city.service';
+import { CityService } from 'src/app/services/city.service';
 import { EntityService } from 'src/app/services/entity.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class HotelComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private cityService: GetCityService,
+              private cityService: CityService,
               private entityService: EntityService,
               private reviewService: ReviewService) { }
 

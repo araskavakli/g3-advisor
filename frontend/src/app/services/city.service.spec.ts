@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetCityService } from './get-city.service';
+import { CityService } from './city.service';
 
 describe('CityService', () => {
-  let service: GetCityService;
+  let service: CityService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(GetCityService);
+    service = TestBed.inject(CityService);
   });
 
   it('should be created', () => {

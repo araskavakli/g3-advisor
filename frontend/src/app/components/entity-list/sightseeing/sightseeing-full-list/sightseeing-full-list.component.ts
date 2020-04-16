@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Sightseeing } from 'src/app/model/sightseeing';
 import { City } from 'src/app/model/city';
 import { ActivatedRoute } from '@angular/router';
-import { GetCityService } from 'src/app/services/get-city.service';
+import { CityService } from 'src/app/services/city.service';
 import { EntityService } from 'src/app/services/entity.service';
 import { EntryFilterObject } from 'src/app/model/entryFilterObject';
 import { FilterService } from 'src/app/services/filter.service';
@@ -22,7 +22,7 @@ export class SightseeingFullListComponent implements OnInit {
   urlList: string[];
 
   constructor(private route: ActivatedRoute,
-              private cityService: GetCityService,
+              private cityService: CityService,
               private entityService: EntityService,
               private filterService: FilterService) { }
 

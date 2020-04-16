@@ -1,4 +1,4 @@
-import { GetCityService } from 'src/app/services/get-city.service';
+import { CityService } from 'src/app/services/city.service';
 import { Component, OnInit } from '@angular/core';
 import { Hotel } from 'src/app/model/hotel';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +22,7 @@ export class HotelFullListComponent implements OnInit {
   urlList: string[];
 
   constructor(private route: ActivatedRoute,
-              private cityService: GetCityService,
+              private cityService: CityService,
               private entityService: EntityService,
               private filterService: FilterService) { }
 

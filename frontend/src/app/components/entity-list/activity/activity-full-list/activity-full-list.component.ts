@@ -3,7 +3,7 @@ import { FilterService } from './../../../../services/filter.service';
 import { Activity } from 'src/app/model/activity';
 import { City } from 'src/app/model/city';
 import { ActivatedRoute } from '@angular/router';
-import { GetCityService } from 'src/app/services/get-city.service';
+import { CityService } from 'src/app/services/city.service';
 import { EntityService } from 'src/app/services/entity.service';
 import { EntryFilterObject } from 'src/app/model/entryFilterObject';
 
@@ -22,7 +22,7 @@ export class ActivityFullListComponent implements OnInit {
   urlList: string[];
 
   constructor(private route: ActivatedRoute,
-              private cityService: GetCityService,
+              private cityService: CityService,
               private entityService: EntityService,
               private filterService: FilterService) { }
 

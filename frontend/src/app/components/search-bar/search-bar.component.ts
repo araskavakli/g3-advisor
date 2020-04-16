@@ -1,4 +1,4 @@
-import { GetCityService } from '../../services/get-city.service';
+import { CityService } from '../../services/city.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { City } from 'src/app/model/city';
@@ -19,7 +19,7 @@ export class SearchBarComponent implements OnInit {
   formControlForCity = new FormControl();
   filteredCities: Observable<string[]>;
 
-  constructor(private cityService: GetCityService,
+  constructor(private cityService: CityService,
               private router: Router) { }
 
   ngOnInit(): void {

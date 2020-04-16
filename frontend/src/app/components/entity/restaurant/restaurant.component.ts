@@ -3,7 +3,7 @@ import { forkJoin } from 'rxjs';
 import { City } from 'src/app/model/city';
 import { Restaurant } from 'src/app/model/restaurant';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GetCityService } from 'src/app/services/get-city.service';
+import { CityService } from 'src/app/services/city.service';
 import { EntityService } from 'src/app/services/entity.service';
 import { ReviewService } from 'src/app/services/review.service';
 import { RestaurantReview } from 'src/app/model/restaurantReview';
@@ -28,7 +28,7 @@ export class RestaurantComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private cityService: GetCityService,
+              private cityService: CityService,
               private entityService: EntityService,
               private reviewService: ReviewService) { }
 

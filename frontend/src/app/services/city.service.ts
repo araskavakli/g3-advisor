@@ -1,4 +1,4 @@
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject } from 'rxjs';
@@ -10,7 +10,7 @@ const apiRoot = 'https://g3-advisor.herokuapp.com/cities/';
 @Injectable({
   providedIn: 'root'
 })
-export class GetCityService {
+export class CityService {
 
   cityImageUrls: string[];
   cities = new ReplaySubject<City[]>(1);

@@ -1,4 +1,4 @@
-import { GetCityService } from '../../services/get-city.service';
+import { CityService } from '../../services/city.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { City } from 'src/app/model/city';
@@ -14,7 +14,7 @@ export class CityComponent implements OnInit {
   cityId: number;
   cityName: string;
 
-  constructor(private cityService: GetCityService,
+  constructor(private cityService: CityService,
               private route: ActivatedRoute,
               private router: Router) {
   }

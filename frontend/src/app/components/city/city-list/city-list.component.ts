@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetCityService } from 'src/app/services/get-city.service';
+import { CityService } from 'src/app/services/city.service';
 import { City } from 'src/app/model/city';
 
 @Component({
@@ -13,7 +13,7 @@ export class CityListComponent implements OnInit {
   cities: City[];
   imageUrlList: string[];
 
-  constructor(private cityService: GetCityService) { }
+  constructor(private cityService: CityService) { }
 
   ngOnInit(): void {
     this.cityService.getCityData().subscribe(cities => this.cities = cities);
