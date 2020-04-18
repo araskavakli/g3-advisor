@@ -8,8 +8,8 @@ import { Activity } from '../model/activity';
 import { Sightseeing } from '../model/sightseeing';
 import { EntityImageUrls } from 'src/assets/entityImageUrls';
 
-// const apiRoot = 'https://g3-advisor.herokuapp.com/';
-const apiRoot = 'http://localhost:8080';
+const apiRoot = 'https://g3-advisor.herokuapp.com/';
+// const apiRoot = 'http://localhost:8080';
 
 @Injectable({
   providedIn: 'root'

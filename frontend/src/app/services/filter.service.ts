@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// const apiRoot = 'https://g3-advisor.herokuapp.com/filter';
-const apiRoot = 'http://localhost:8080/filter';
+const apiRoot = 'https://g3-advisor.herokuapp.com/filter';
+// const apiRoot = 'http://localhost:8080/filter';
 
 @Injectable({
   providedIn: 'root'

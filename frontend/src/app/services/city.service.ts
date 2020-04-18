@@ -5,8 +5,8 @@ import { Observable, ReplaySubject } from 'rxjs';
 import { City } from '../model/city';
 import { CityImageUrls } from 'src/assets/cityImageUrls';
 
-// const apiRoot = 'https://g3-advisor.herokuapp.com/cities/';
-const apiRoot = 'http://localhost:8080/cities/';
+const apiRoot = 'https://g3-advisor.herokuapp.com/cities/';
+// const apiRoot = 'http://localhost:8080/cities/';
 
 @Injectable({
   providedIn: 'root'
