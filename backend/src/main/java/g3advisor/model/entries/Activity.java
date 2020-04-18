@@ -1,8 +1,10 @@
 package g3advisor.model.entries;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import g3advisor.model.reviews.ActivityReview;
 import lombok.Getter;
@@ -29,19 +31,28 @@ public class Activity extends Entry {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long activityId;
 
-	@JsonBackReference
-	@OneToMany(mappedBy = "activity")
-	private List<ActivityReview> activityReviews;
-
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "activity", fetch = FetchType.EAGER)
+	private List<ActivityReview> activityReviews;
+
 
 	public void addReview(ActivityReview activityReview) {
 		activityReview.setActivity(this);
 		activityReviews.add(activityReview);
 		this.updateRating();
 
+	}
+	
+	public void removeReview(Long activityReviewId) {
+		activityReviews = activityReviews.stream()
+										 .filter(review -> !review.getId().equals(activityReviewId))
+										 .collect(Collectors.toList());
+		this.updateRating();
+		
 	}
 
 	@Override

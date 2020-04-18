@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 
 import { Observable, ReplaySubject } from 'rxjs';
 
-const apiRoot = 'https://g3-advisor.herokuapp.com';
+// const apiRoot = 'https://g3-advisor.herokuapp.com';
+const apiRoot = 'http://localhost:8080';
 
 @Injectable({
   providedIn: 'root'

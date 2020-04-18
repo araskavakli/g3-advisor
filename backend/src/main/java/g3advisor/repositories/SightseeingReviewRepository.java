@@ -13,5 +13,8 @@ public interface SightseeingReviewRepository extends JpaRepository<SightseeingRe
 	
 	@Query(value = "SELECT * FROM sightseeing_reviews s WHERE s.sightseeing_id = :sightseeingId ORDER BY review_creation_date DESC", nativeQuery = true)
 	List<SightseeingReview> findReviewsOfSightseeingBySightseeingId(@Param("sightseeingId") Long sightseeingId);
+	
+	@Query(value = "SELECT sightseeing_id FROM sightseeing_reviews s WHERE s.id = :sightseeingReviewId", nativeQuery = true)
+	Long findSightseeingIdBySightseeingReviewId(@Param("sightseeingReviewId") Long sightseeingReviewId);
 
 }

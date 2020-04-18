@@ -91,6 +91,10 @@ public class ReviewController {
 
 	@DeleteMapping("/reviews/activities/delete/{activityReviewId}")
 	public ResponseEntity<?> deleteActivityReview(@Valid @PathVariable Long activityReviewId) {
+		Long activityId = activityReviewRepository.findActivityIdByActivityReviewId(activityReviewId);
+		Optional<Activity> activityToBeUpdated = activityRepository.findById(activityId);
+		Activity activity = activityToBeUpdated.get();
+		activity.removeReview(activityReviewId);
 		activityReviewRepository.deleteById(activityReviewId);
 		return new ResponseEntity<ActivityReview>(HttpStatus.OK);
 	}
@@ -131,6 +135,10 @@ public class ReviewController {
 
 	@DeleteMapping("/reviews/hotels/delete/{hotelReviewId}")
 	public ResponseEntity<?> deleteHotelReview(@Valid @PathVariable Long hotelReviewId) {
+		Long hotelId = hotelReviewRepository.findHotelIdByHotelReviewId(hotelReviewId);
+		Optional<Hotel> hotelToBeUpdated = hotelRepository.findById(hotelId);
+		Hotel hotel = hotelToBeUpdated.get();
+		hotel.removeReview(hotelReviewId);
 		hotelReviewRepository.deleteById(hotelReviewId);
 		return new ResponseEntity<HotelReview>(HttpStatus.OK);
 	}
@@ -173,6 +181,10 @@ public class ReviewController {
 
 	@DeleteMapping("/reviews/sightseeings/delete/{sightseeingReviewId}")
 	public ResponseEntity<?> deleteSightseeingReview(@Valid @PathVariable Long sightseeingReviewId) {
+		Long sightseeingId = sightseeingReviewRepository.findSightseeingIdBySightseeingReviewId(sightseeingReviewId);
+		Optional<Sightseeing> sightseeingToBeUpdated = sightseeingRepository.findById(sightseeingId);
+		Sightseeing sightseeing = sightseeingToBeUpdated.get();
+		sightseeing.removeReview(sightseeingReviewId);
 		sightseeingReviewRepository.deleteById(sightseeingReviewId);
 		return new ResponseEntity<SightseeingReview>(HttpStatus.OK);
 	}
@@ -215,6 +227,10 @@ public class ReviewController {
 
 	@DeleteMapping("/reviews/restaurants/delete/{restaurantReviewId}")
 	public ResponseEntity<?> deleteRestaurantReview(@Valid @PathVariable Long restaurantReviewId) {
+		Long restaurantId = restaurantReviewRepository.findRestaurantIdByRestaurantReviewId(restaurantReviewId);
+		Optional<Restaurant> restaurantToBeUpdated = restaurantRepository.findById(restaurantId);
+		Restaurant restaurant = restaurantToBeUpdated.get();
+		restaurant.removeReview(restaurantReviewId);
 		restaurantReviewRepository.deleteById(restaurantReviewId);
 		return new ResponseEntity<RestaurantReview>(HttpStatus.OK);
 	}

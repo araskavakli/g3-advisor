@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// const apiRoot = 'https://g3-advisor.herokuapp.com/filter';
+const apiRoot = 'http://localhost:8080/filter';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +16,7 @@ export class FilterService {
 
   filterResults(filterObject: EntryFilterObject): Observable<any[]> {
     const searchUrl = this.generateFilterUrl(filterObject);
-    return this.http.get<any[]>(('https://g3-advisor.herokuapp.com/filter/' + searchUrl));
+    return this.http.get<any[]>((`${apiRoot}/${searchUrl}`));
   }
 
   public generateFilterUrl(filterObject: EntryFilterObject) {

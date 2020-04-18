@@ -14,5 +14,8 @@ public interface HotelReviewRepository extends JpaRepository<HotelReview, Long> 
 	
 	@Query(value = "SELECT * FROM hotel_reviews h WHERE h.hotel_id = :hotelId ORDER BY review_creation_date DESC", nativeQuery = true)
 	List<HotelReview> findReviewsOfHotelByHotelId(@Param("hotelId") Long hotelId);
+	
+	@Query(value = "SELECT hotel_id FROM hotel_reviews h WHERE h.id = :hotelReviewId", nativeQuery = true)
+	Long findHotelIdByHotelReviewId(@Param("hotelReviewId") Long hotelReviewId);
 
 }

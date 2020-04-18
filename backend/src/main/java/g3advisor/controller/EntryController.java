@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping()
+@Component
 public class EntryController {
 
 	private final CityRepository cityRepository;
@@ -37,7 +39,8 @@ public class EntryController {
 	private final HotelRepository hotelRepository;
 	private final SightseeingRepository sightseeingRepository;
 	private final RestaurantRepository restaurantRepository;
-
+	
+	
 	@GetMapping("/activities")
 	public ResponseEntity<List<Activity>> findActivities(@Valid @RequestParam(required = false) Long cityId) {
 		if (cityId != null) {
@@ -50,7 +53,9 @@ public class EntryController {
 
 	@GetMapping("/activities/{activityId}")
 	public ResponseEntity<Activity> findActivityById(@Valid @PathVariable Long activityId) {
-		return new ResponseEntity<Activity>(activityRepository.findById(activityId).get(), HttpStatus.OK);
+		Activity activity = activityRepository.findById(activityId).get();
+		activity.updateRating();
+		return new ResponseEntity<Activity>(activity, HttpStatus.OK);
 	}
 
 	@GetMapping("/hotels")
@@ -64,7 +69,9 @@ public class EntryController {
 
 	@GetMapping("/hotels/{hotelId}")
 	public ResponseEntity<Hotel> findHotelById(@Valid @PathVariable Long hotelId) {
-		return new ResponseEntity<Hotel>(hotelRepository.findById(hotelId).get(), HttpStatus.OK);
+		Hotel hotel = hotelRepository.findById(hotelId).get();
+		hotel.updateRating();
+		return new ResponseEntity<Hotel>(hotel, HttpStatus.OK);
 	}
 
 	@GetMapping("/sightseeings")
@@ -79,7 +86,9 @@ public class EntryController {
 
 	@GetMapping("/sightseeings/{sightseeingId}")
 	public ResponseEntity<Sightseeing> findSightseeingById(@Valid @PathVariable Long sightseeingId) {
-		return new ResponseEntity<Sightseeing>(sightseeingRepository.findById(sightseeingId).get(), HttpStatus.OK);
+		Sightseeing sightseeing = sightseeingRepository.findById(sightseeingId).get();
+		sightseeing.updateRating();
+		return new ResponseEntity<Sightseeing>(sightseeing, HttpStatus.OK);
 	}
 
 	@GetMapping("/restaurants")
@@ -94,7 +103,9 @@ public class EntryController {
 
 	@GetMapping("/restaurants/{restaurantId}")
 	public ResponseEntity<Restaurant> findRestaurantById(@Valid @PathVariable Long restaurantId) {
-		return new ResponseEntity<Restaurant>(restaurantRepository.findById(restaurantId).get(), HttpStatus.OK);
+		Restaurant restaurant = restaurantRepository.findById(restaurantId).get();
+		restaurant.updateRating();
+		return new ResponseEntity<Restaurant>(restaurant, HttpStatus.OK);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)

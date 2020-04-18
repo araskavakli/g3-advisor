@@ -1,8 +1,10 @@
 package g3advisor.model.entries;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +38,7 @@ public class Sightseeing extends Entry {
 	private City city;
 
 	@JsonManagedReference
-	@OneToMany(mappedBy = "sightseeing")
+	@OneToMany(mappedBy = "sightseeing", fetch = FetchType.EAGER)
 	private List<SightseeingReview> sightseeingReviews;
 
 	public void addReview(SightseeingReview sightseeingReview) {
@@ -44,6 +46,14 @@ public class Sightseeing extends Entry {
 		sightseeingReviews.add(sightseeingReview);
 		this.updateRating();
 
+	}
+	
+	public void removeReview(Long sightseeingReviewId) {
+		sightseeingReviews = sightseeingReviews.stream()
+											   .filter(review -> !review.getId().equals(sightseeingReviewId))
+										 	   .collect(Collectors.toList());
+		this.updateRating();
+		
 	}
 
 	@Override

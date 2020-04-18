@@ -15,4 +15,7 @@ public interface ActivityReviewRepository extends JpaRepository<ActivityReview, 
 	@Query(value = "SELECT * FROM activity_reviews r WHERE r.activity_id = :activityId ORDER BY review_creation_date DESC", nativeQuery = true)
 	List<ActivityReview> findReviewsOfActivityByActivityId(@Param("activityId") Long activityId);
 	
+	@Query(value = "SELECT activity_id FROM activity_reviews a WHERE a.id = :activityReviewId", nativeQuery = true)
+	Long findActivityIdByActivityReviewId(@Param("activityReviewId") Long activityReviewId);
+	
 }

@@ -33,7 +33,7 @@ export class SightseeingComponent implements OnInit {
     this.cityId = Number(this.route.snapshot.paramMap.get('id'));
     this.sightseeingId = Number(this.route.snapshot.paramMap.get('idEntity'));
     this.reviewService.listenToTriggerRefreshReviews().subscribe(() => {
-      this.updateOverallRatingOnAddReview();
+      this.updateOverallRating();
     });
 
     this.cityService.cities.subscribe(cities => {
@@ -52,7 +52,7 @@ export class SightseeingComponent implements OnInit {
     }, error => this.router.navigate([`cities/${this.cityId}`]));
   }
 
-  updateOverallRatingOnAddReview(): void {
+  updateOverallRating(): void {
     this.entityService.getSightseeingById(this.sightseeingId).subscribe(sightseeing => this.sightseeing = sightseeing);
   }
 

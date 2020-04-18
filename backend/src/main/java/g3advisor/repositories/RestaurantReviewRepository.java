@@ -13,5 +13,8 @@ public interface RestaurantReviewRepository extends JpaRepository<RestaurantRevi
 	
 	@Query(value = "SELECT * FROM restaurant_reviews r WHERE r.restaurant_id = :restaurantId ORDER BY review_creation_date DESC", nativeQuery = true)
 	List<RestaurantReview> findReviewsOfRestaurantByRestaurantId(@Param("restaurantId") Long restaurantId);
+	
+	@Query(value = "SELECT restaurant_id FROM restaurant_reviews r WHERE r.id = :restaurantReviewId", nativeQuery = true)
+	Long findRestaurantIdByRestaurantReviewId(@Param("restaurantReviewId") Long restaurantReviewId);
 
 }

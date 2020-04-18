@@ -36,7 +36,7 @@ export class HotelComponent implements OnInit {
     this.cityId = Number(this.route.snapshot.paramMap.get('id'));
     this.hotelId = Number(this.route.snapshot.paramMap.get('idEntity'));
     this.reviewService.listenToTriggerRefreshReviews().subscribe(() => {
-      this.updateOverallRatingOnAddReview();
+      this.updateOverallRating();
     });
 
     this.cityService.cities.subscribe(cities => {
@@ -64,7 +64,7 @@ export class HotelComponent implements OnInit {
     }
   }
 
-  updateOverallRatingOnAddReview(): void {
+  updateOverallRating(): void {
     this.entityService.getHotelById(this.hotelId).subscribe(hotel => this.hotel = hotel);
   }
 }

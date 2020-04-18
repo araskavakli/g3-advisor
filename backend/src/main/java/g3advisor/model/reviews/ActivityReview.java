@@ -8,7 +8,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import g3advisor.model.entries.Activity;
+import g3advisor.model.entries.Hotel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,9 +27,9 @@ public class ActivityReview extends Review {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "activity_id")
 	private Activity activity;
-
-
+	
 }

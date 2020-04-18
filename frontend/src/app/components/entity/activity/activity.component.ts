@@ -33,7 +33,7 @@ export class ActivityComponent implements OnInit {
     this.cityId = Number(this.route.snapshot.paramMap.get('id'));
     this.activityId = Number(this.route.snapshot.paramMap.get('idEntity'));
     this.reviewService.listenToTriggerRefreshReviews().subscribe(() => {
-      this.updateOverallRatingOnAddReview();
+      this.updateOverallRating();
     });
 
     this.cityService.cities.subscribe(cities => {
@@ -52,7 +52,7 @@ export class ActivityComponent implements OnInit {
     }, error => this.router.navigate([`cities/${this.cityId}`]));
   }
 
-  updateOverallRatingOnAddReview(): void {
+  updateOverallRating(): void {
     this.entityService.getActivityById(this.activityId).subscribe(activity => this.activity = activity);
   }
 }
