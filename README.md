@@ -2,7 +2,7 @@
 
 The final group project at the YouGrow Coding Bootcamp from 01/2020 to 03/2020. The web app simulates a travel guide across several cities worldwide. The user is able to get an overview of several places of interest (hotels, restaurants, activities, sightseeing spots) of each city as well as to filter and sort the respective entries in multiple ways. Moreover, it is possible to post, edit or delete reviews for each specific entry. 
 
-A deployed version of the app can be seen here: https://araskavakli.github.io/g3-advisor/
+A deployed version of the app can be seen here: https://araskavakli.github.io/g3-advisor/ \
 The backend is hosted on Heroku as a free tier app which causes up to 10 seconds delay on the first http request.
 
 ## Table of Contents
