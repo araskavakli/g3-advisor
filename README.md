@@ -7,12 +7,7 @@ The backend is hosted on Heroku as a free tier app which causes up to 10 seconds
 
 ![landing-page](/img/6.png)
 
-![cities](/img/1.png)
-
 ![hotel](/img/3.png)
-
-![leave-review](/img/4.png)
-
 
 ## Table of Contents
 
