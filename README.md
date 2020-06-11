@@ -5,6 +5,15 @@ The final group project at the YouGrow Coding Bootcamp from 01/2020 to 03/2020. 
 A deployed version of the app can be seen here: https://araskavakli.github.io/g3-advisor/ \
 The backend is hosted on Heroku as a free tier app which causes up to 10 seconds delay on the first http request.
 
+![landing-page](/img/6.png)
+
+![cities](/img/1.png)
+
+![hotel](/img/3.png)
+
+![leave-review](/img/4.png)
+
+
 ## Table of Contents
 
 * Used Technologies 
