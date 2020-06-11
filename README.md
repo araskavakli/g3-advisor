@@ -8,8 +8,6 @@ The backend is hosted on Heroku as a free tier app which causes up to 10 seconds
 <br>
 <br>
 
-![landing-page](/img/6.png)
-
 ![hotel](/img/3.png)
 
 ## Table of Contents
